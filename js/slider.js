@@ -1,18 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
-console.log('slider.js loaded');
-
-//sprobowac napisac to na requestAnimationFrame() zamiast setInterval, tak samo social-counters.js;
 
      var galleryUl = document.querySelector('.gallery ul');
      var galleryUlChildrenInitial = [...galleryUl.children]; //potrzebne do headera .pages w fullscreen
      var body = document.querySelector('body');
-     //console.log(galleryUl);
 
      function initializeInterval(){
          var sliderIntervalId = setInterval(function(){
              galleryUl.classList.add('timed-transition-right'); //ustawia transition na czas przesuniecia, klasa jest usuwana przed wyzerowaniem przesuniecia zeby nie bylo ono animowane
              galleryUl.style.right = galleryUl.firstElementChild.clientWidth + 'px';
-             console.log(galleryUl.firstElementChild.clientWidth);
              setTimeout(function () { //timeout potrzebny na wykonanie sie animacji
                  galleryUl.classList.remove('timed-transition-right'); //usuwam timed transition zeby niewidoczne zerowanie right bylo natychmiastowe
                  galleryUl.appendChild(galleryUl.firstElementChild);
@@ -34,12 +29,10 @@ console.log('slider.js loaded');
     var id = initializeInterval();
 
     galleryUl.addEventListener('mouseenter', function () {
-        //console.log('stopped interval');
         clearInterval(id);
     });
 
     galleryUl.addEventListener('mouseleave', function(){
-        //console.log('started interval');
         id = initializeInterval();
     });
 
@@ -73,7 +66,6 @@ console.log('slider.js loaded');
                 '               </span>' +
                 '           </div>';
 
-            //console.log(htmlCode);
             fullscreenDiv.innerHTML = htmlCode;
             body.appendChild(fullscreenDiv);
             fullscreenDiv.classList.add('fullScreen');
@@ -86,8 +78,6 @@ console.log('slider.js loaded');
             var prevImg = fullscreenDiv.querySelector('#arrowLeft i');
             var playSlideShow = fullscreenDiv.querySelector('#play i');
             var download = fullscreenDiv.querySelector('#download i');
-            console.log(parentLi, pages, exitCross, nextImg, img, prevImg, playSlideShow, download);
-
 
             /**
              *  impure functions for album control operating on global variables (were I doing this with current knowledge I'd
@@ -123,7 +113,7 @@ console.log('slider.js loaded');
             }
 
             function toggleAlbumInterval() {
-                var id = setInterval(loadNextImg,2500);
+                var id = setInterval(loadNextImg,2000);
                 return id
             }
 
@@ -142,7 +132,6 @@ console.log('slider.js loaded');
 
 
             fullscreenDiv.addEventListener('click', function (e) {
-                console.log(e.target);
 
                 switch (e.target){
                     case fullscreenDiv:

@@ -1,14 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('social_counters.js loaded');
 
     //ten skrypt obciaza troche procka mimo ze iteruje 0.111 zamiast 0.001
 
     var socialCounters = document.querySelectorAll('.social-counter span');
-    //console.log(socialCounters);
     var span0 = Number(socialCounters[0].textContent.replace(',','.'));
     var span1 = Number(socialCounters[1].textContent.replace(',','.'));
     var span2 = Number(socialCounters[2].textContent.replace(',','.'));
-    //console.log(span0, span1, span2);
+
 
     //animacje counterow trwaja mniej wiecej tyle samo (ok. 5 sekund) niezaleznie od liczby w przykladowym projekcie wiec musimy wyliczyc stosunek potrzebnych iteracji o 0.111 do czasu trwania animacji
     var span0IntervalDelay = 5000 / (span0 / 0.111);
