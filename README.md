@@ -13,4 +13,4 @@ You can see it here: https://jayrix.github.io/InteriorDesign/
 
 
 
-Graphical design is based on http://adoringinteiordesingn.info/
+Graphical design is based on https://w3layouts.com/preview/?l=/adorning-interior-furniture-category-bootstrap-responsive-web-template/
